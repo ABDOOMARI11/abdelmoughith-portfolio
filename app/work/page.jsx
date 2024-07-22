@@ -33,10 +33,9 @@ const projects = [
       "DAcademy is an online learning platform built with the MERN stack and Next.js. It offers intuitive tools for course creation, management, and student tracking, providing a modern and efficient educational experience.",
     stack: [
       { name: "nextJs" },
-      { name: "nodeJs" },
-      { name: "expressJs" },
-      { name: "reactJs" },
+      
       { name: "mongoDb" },
+      { name: "+... more" },
     ],
     image: "/assets/Dacademy/3.png",
     github: "https://github.com/ABDOOMARI11/lms-project.git",
