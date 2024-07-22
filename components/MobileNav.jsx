@@ -44,16 +44,12 @@ const MobileNav = () => {
         </button>
       </SheetTrigger>
       <SheetContent className="flex flex-col">
-        <div className="flex justify-center items-center my-12">
+        <div className="flex justify-center items-center my-4">
           <Link href="/">
-            <img
-              src="/assets/logo (2).png"
-              alt="Logo"
-              className="h-16 xl:h-16"
-            />
+            <img src="/assets/logo (2).png" alt="Logo" className="h-16 xl:h-16" />
           </Link>
         </div>
-        <nav className="flex flex-col justify-center items-center gap-8">
+        <nav className="flex flex-col justify-center items-center gap-4">
           {links.map((link, index) => (
             <Link
               href={link.path}
