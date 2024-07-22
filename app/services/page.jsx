@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { BsArrowDownRight } from "react-icons/bs";
 import { motion } from "framer-motion";
+
 const services = [
   {
     num: "01",
@@ -38,17 +39,16 @@ const Services = () => {
                 className="flex flex-col justify-center gap-6 group"
               >
                 <div className="w-full flex justify-between items-center">
-                  <div className="text-5xl font-extrabold text-outline text-transparent group-hover:text-outiline-hover">
+                  <div className="text-5xl font-extrabold text-outline text-transparent group-hover: -webkit-text-stroke-hover: 1px #12B2F1;">
                     {service.num}
                   </div>
-                  <Link
-                    href={service.href}
-                    className=" hover:-rotate-45"
-                  >
-                    <BsArrowDownRight className="text-white text-3xl"/>
+                  <Link href={service.href} className="hover:-rotate-45">
+                    <BsArrowDownRight className="text-white text-3xl" />
                   </Link>
                 </div>
-                <h2 className="text-[42px] font-bold leading-none text-white">{service.title}</h2>
+                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent">
+                  {service.title}
+                </h2>
                 <p className="text-white/60">{service.description}</p>
                 <div className="border-b border-white/20 w-full"></div>
               </div>
