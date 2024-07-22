@@ -60,10 +60,6 @@ const about = {
       fieldValue: "Moroccan",
     },
     {
-      fieldName: "Email",
-      fieldValue: "abdelmoughithelaoumari@gmail.com",
-    },
-    {
       fieldName: "Languages",
       fieldValue: "Arabic,English,French",
     },
