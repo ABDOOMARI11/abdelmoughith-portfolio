@@ -13,6 +13,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
+
 const projects = [
   {
     num: "01",
@@ -33,7 +34,6 @@ const projects = [
       "DAcademy is an online learning platform built with the MERN stack and Next.js. It offers intuitive tools for course creation, management, and student tracking, providing a modern and efficient educational experience.",
     stack: [
       { name: "nextJs" },
-      
       { name: "mongoDb" },
       { name: "+... more" },
     ],
@@ -49,7 +49,7 @@ const projects = [
       "This project digitizes the pre-enrollment process for Professional Bachelor’s programs using PHP and XML, streamlining administrative tasks for greater efficiency.",
     stack: [
       { name: "php" },
-      { name: "html " },
+      { name: "html" },
       { name: "bootstrap" },
       { name: "xml" },
     ],
@@ -64,8 +64,8 @@ const projects = [
     description:
       "This project is a social network for students in the Professional Bachelor’s program, developed using HTML, CSS, and JavaScript, with Google Firebase services.",
     stack: [
-      { name: "html " },
-      { name: "css " },
+      { name: "html" },
+      { name: "css" },
       { name: "js" },
       { name: "firebase" },
     ],
@@ -74,12 +74,15 @@ const projects = [
     github: "",
   },
 ];
+
 const Work = () => {
-  const [project, setproject] = useState(projects[0]);
+  const [project, setProject] = useState(projects[0]);
+
   const handleSlideChange = (swiper) => {
     const currentIndex = swiper.activeIndex;
-    setproject(projects[currentIndex]);
+    setProject(projects[currentIndex]);
   };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -91,8 +94,6 @@ const Work = () => {
         <div className="flex flex-col xl:flex-row xl:gap-[30px]">
           <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
             <div className="flex flex-col gap-[30px] h-[20%] mb-8">
-              {" "}
-              {/* Ajout de mb-8 pour l'espace */}
               <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
                 {project.num}
               </div>
@@ -100,15 +101,13 @@ const Work = () => {
                 {project.category} project
               </h2>
               <p className="text-white/60">{project.description}</p>
-              <ul className="flex gap-4">
-                {project.stack.map((item, index) => {
-                  return (
-                    <li key={index} className="text-xl text-accent capitalize">
-                      {item.name}
-                      {index !== project.stack.length - 1 && ","}
-                    </li>
-                  );
-                })}
+              <ul className="flex gap-4 flex-wrap">
+                {project.stack.map((item, index) => (
+                  <li key={index} className="text-xl text-accent capitalize">
+                    {item.name}
+                    {index !== project.stack.length - 1 && ","}
+                  </li>
+                ))}
               </ul>
               <div className="border border-white/20"></div>
               <div className="flex items-center gap-4">
@@ -142,24 +141,25 @@ const Work = () => {
               className="xl:h-[520px] mb-12"
               onSlideChange={handleSlideChange}
             >
-              {projects.map((project, index) => {
-                return (
-                  <SwiperSlide key={index} className="w-full">
-                    <div className="h-[450px] relative group flex justify-center items-center bg-pink-50/20">
-                      <div className="absolute"></div>
-                      <div className="relative w-full h-full bg-black/10 z-10">
-                        <Image
-                          src={project.image}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
+              {projects.map((project, index) => (
+                <SwiperSlide key={index} className="w-full">
+                  <div className="h-[250px] md:h-[350px] xl:h-[450px] relative group flex justify-center items-center bg-pink-50/20">
+                    <div className="absolute"></div>
+                    <div className="relative w-full h-full bg-black/10 z-10">
+                      <Image
+                        src={project.image}
+                        fill
+                        className="object-cover"
+                        alt={project.title}
+                      />
                     </div>
-                  </SwiperSlide>
-                );
-              })}
-              <WorkSliderBtns containerStyles="flex gap-2 absolute right-0 bottom-[calc(50% - 22px) xl:bottom-0 z-20 justify-between xl:w-max xl:justify-none"
-               btnsStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"/>
+                  </div>
+                </SwiperSlide>
+              ))}
+              <WorkSliderBtns
+                containerStyles="flex gap-2 absolute right-0 bottom-[calc(50% - 22px) xl:bottom-0 z-20 justify-between xl:w-max xl:justify-none"
+                btnsStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
+              />
             </Swiper>
           </div>
         </div>
