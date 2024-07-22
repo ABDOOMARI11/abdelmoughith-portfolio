@@ -114,7 +114,7 @@ const education = {
     },
     {
       institution: "Faculty of Science and Technology of Beni Mellal",
-      degree: "1st Year major Mathematics-Computer Science-Physics-Chemistry",
+      degree: "1st Year major M.I.P.C",
       duration: "2020 - 2021",
     },
   ],
