@@ -38,7 +38,7 @@ const projects = [
       { name: "reactJs" },
       { name: "mongoDb" },
     ],
-    image: "/assets/dacademy/3.png",
+    image: "/assets/Dacademy/3.png",
     github: "https://github.com/ABDOOMARI11/lms-project.git",
     details: "",
   },
