@@ -49,9 +49,8 @@ const projects = [
       "This project digitizes the pre-enrollment process for Professional Bachelor’s programs using PHP and XML, streamlining administrative tasks for greater efficiency.",
     stack: [
       { name: "php" },
-      { name: "html 5" },
-      { name: "css 3" },
-      { name: "bootstrap 5" },
+      { name: "html " },
+      { name: "bootstrap" },
       { name: "xml" },
     ],
     image: "/assets/e-candidature/1.png",
@@ -65,9 +64,9 @@ const projects = [
     description:
       "This project is a social network for students in the Professional Bachelor’s program, developed using HTML, CSS, and JavaScript, with Google Firebase services.",
     stack: [
-      { name: "html 5" },
-      { name: "css 3" },
-      { name: "javascript" },
+      { name: "html " },
+      { name: "css " },
+      { name: "js" },
       { name: "firebase" },
     ],
     image: "/assets/firebase-project/1.png",
