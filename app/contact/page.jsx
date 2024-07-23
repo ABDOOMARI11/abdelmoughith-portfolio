@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/select";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const info = [
   {
@@ -34,6 +35,26 @@ const info = [
 ];
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstname: '',
+    lastname: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = () => {
+    const { firstname, lastname, email, phone, service, message } = formData;
+    const mailtoLink = `mailto:abdelmoughithelaoumari@gmail.com?subject=Contact%20Form%20Submission&body=First Name: ${firstname}%0D%0ALast Name: ${lastname}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0AService: ${service}%0D%0AMessage: ${message}`;
+
+    window.location.href = mailtoLink;
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -44,7 +65,13 @@ const Contact = () => {
       <div className="container mx-auto">
         <div className="flex flex-col gap-6 xl:flex-row xl:gap-[30px]">
           <div className="flex flex-col xl:w-[54%] order-2 xl:order-none">
-            <form className="flex flex-col p-6 bg-[#27272c] rounded-xl">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmit();
+              }}
+              className="flex flex-col p-6 bg-[#27272c] rounded-xl"
+            >
               <h3 className="text-2xl md:text-3xl lg:text-4xl text-accent">
                 Let's work together
               </h3>
@@ -53,12 +80,40 @@ const Contact = () => {
                 results.
               </p>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2 gap-6 mt-4">
-                <Input type="firstname" placeholder="Firstname" />
-                <Input type="lastname" placeholder="Lastname" />
-                <Input type="email" placeholder="Email address" />
-                <Input type="phone" placeholder="Phone number" />
+                <Input
+                  type="text"
+                  name="firstname"
+                  placeholder="Firstname"
+                  value={formData.firstname}
+                  onChange={handleChange}
+                />
+                <Input
+                  type="text"
+                  name="lastname"
+                  placeholder="Lastname"
+                  value={formData.lastname}
+                  onChange={handleChange}
+                />
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Email address"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+                <Input
+                  type="phone"
+                  name="phone"
+                  placeholder="Phone number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                />
               </div>
-              <Select className="mt-4">
+              <Select
+                name="service"
+                className="mt-4"
+                onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+              >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
@@ -74,9 +129,12 @@ const Contact = () => {
               </Select>
               <Textarea
                 className="h-[150px] md:h-[200px] mt-4"
+                name="message"
                 placeholder="Type your message here"
+                value={formData.message}
+                onChange={handleChange}
               />
-              <Button size="md" className="max-w-xs mt-4">
+              <Button type="submit" size="md" className="max-w-xs mt-4">
                 Send message
               </Button>
             </form>
