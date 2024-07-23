@@ -26,11 +26,11 @@ const Photo = () => {
             quality={100}
             fill
             alt=""
-            className="object-contain"
+            className="object-contain rounded-full"
           />
         </motion.div>
         <motion.svg
-          className="w-[370px] xl:w-[650px] h-[370px] xl:h-[650px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          className="w-[800px] xl:w-[970px] h-[320px] xl:h-[510px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           fill="transparent"
           viewBox="0 0 506 506"
           xmlns="https://www.w3.org/2000/svg"
